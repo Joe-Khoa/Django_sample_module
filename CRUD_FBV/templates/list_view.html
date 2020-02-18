@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    th{
+      border-width: 1px 1px 1px 1px !important;
+      border-color: grey;
+      border-style: solid;
+    }
+    .col-title{
+      padding-left: 50px;
+      padding-right: 50px;
+      color: blue;
+      /* border-width: 0px 1px 0px 1px;
+      border-color: grey;
+      border-style: solid; */
+    }
+    .col-id{
+      color: darkgreen;
+      border-width: 0px 1px 0px 1px;
+      border-color: grey;
+      border-style: solid;
+    }
+    .col-data{
+      color: darkred;
+      border-width: 0px 1px 0px 1px;
+      border-color: grey;
+      border-style: solid;
+    }
+  </style>
+  <body>
+      <table>
+        <tr>
+          <th class="col-id">id</th>
+          <th class="col-title">title</th>
+          <th class="col-data">description</th>
+        </tr>
+
+          {% for data in data %}
+          <tr>
+            <td class="col-id">{{data.pk}}</td>
+            <td class="col-title">{{data.title}}</td>
+            <td class="col-data"> {{data.description}} </td>
+            <td>
+              <form class="" action="{{data.pk}}/delete" method="post">
+                {% csrf_token %}
+                <input type="submit" name="delete" value="delete">
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+          <tr>
+
+          </tr>
+      </table>
+
+      <form class="" action="create" method="post">
+        <!-- <td class="col-id">__</td> -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="post_type" value="add_new_from_list">
+        <input type="submit" name="add" value="add">
+      </form>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  </head>
+  <body>
+    <!-- <form class="" method="post">
+      {% csrf_token %}
+      {{ form_manual}}
+      <input type="submit" name="" value="submit">
+    </form> -->
+      <div class="jumbotron text-success">
+        <h1 class="d-flex justify-content-center" >Create form manually</h1>
+      </div>
+
+    <form class="m-4 col-6 justify-content-center" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="">First Name</label>
+        {{form_manual.first_name}}
+      </div>
+      <div class="form-group">
+        <label for="">Last Name</label>
+        {{form_manual.last_name}}
+      </div>
+      <div class="form-group">
+        <label for="">Roll Number</label>
+        {{form_manual.roll_number}}
+      </div>
+      <div class="form-group">
+        <label for="">password</label>
+        {{form_manual.password}}
+      </div>
+      <button class="btn btn-primary d-flex justify-content-center" type="submit" name="submit">Submit</button>
+    </form>
+
+
+  </body>
+</html>

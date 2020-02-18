@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> DATA LIST </h1>
+    <button type="button" name="button">
+      <a href="create">CREATE</a>
+    </button>
+    <hr/>
+
+    <!-- {{object_list}} -->
+    {% for obj in object_list %}
+      <li>primary key (id): {{obj.pk}}</li>
+      <li>{{obj.title}}</li>
+      <li>{{obj.description}}</li>
+      <li> <button type="button" name="button"> <a href="../../update/{{obj.pk}}"> UPDATE : id_{{obj.pk}}</a> </button></li>
+      <li>
+        <form class="" action="delete/{{obj.pk}}" method="post">
+          {% csrf_token %}
+          <input type="submit" name="" value="delete">
+        </form>
+       </li>
+      <hr/>
+    {% empty %}
+    <li>No object yet!</li>
+    {% endfor %}
+  </body>
+</html>

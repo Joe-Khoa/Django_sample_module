@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <style media="screen">
+    .col-1{
+        width: 20px;        
+    }
+    .col-3{
+        /* padding-left: 5px;
+        padding-right: 5px; */
+    }
+  </style>
+  <body>
+    <div class="jumbotron">
+      <h1> Test Model of Manual Form </h1>
+    </div>
+
+    <div class="container m-4">
+      <table>
+        <th class="col-1">First name</th>
+        <th class="col-2">Last name</th>
+        <th class="col-3">Roll number</th>
+        <th class="col-4">password</th>
+        {% for data in data %}
+          <tr>
+            <td class="col-1">{{data.first_name}}</td>
+            <td class="col-2">{{data.last_name}}</td>
+            <td class="col-3">{{data.roll_number}}</td>
+            <td class="col-4">{{data.password}}</td>
+          </tr>
+        {% endfor%}
+      </table>
+
+    </div>
+
+  </body>
+</html>
